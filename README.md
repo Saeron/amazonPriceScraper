@@ -35,25 +35,26 @@ packages. In other to do that:
 
 First you'll need to set up your
 preferences:
-
-URL: Just copy here the URLS from
+<ul>
+<li>URL: Just copy here the URLS from
 object to check, you don't have
-to copy the <code>qid</code> part.
+to copy the <code>qid</code> part.</li>
 
-my_email: The email you are goin to
-use for notifications.
+<li>my_email: The email you are goin to
+use for notifications.</li>
 
-password: The password of your email,
+<li>password: The password of your email,
 but in this case I suggest you use
 an additional one, in order to do that
 ( gmail case ), first you need to
 activate the 2 steps verification.
 Then you can go to https://myaccount.google.com/apppasswords
-and create a new password application.
+and create a new password application.</li>
 
-my_price: The offer you want to
-check for.
+<li>my_price: The offer you want to
+check for.</li>
 
+</ul>
 
 Finally you only have run the
 script: <code>python3 amazonScraper.py</code>
