@@ -33,7 +33,7 @@ packages. In other to do that:
 
 # How this works
 
-First you'll need to set up your's
+First you'll need to set up your
 preferences:
 
 URL: Just copy here the URLS from
