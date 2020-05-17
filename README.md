@@ -31,7 +31,7 @@ packages. In other to do that:
     <li>In IDLE, <code>import sys</code> and typing <code>sys.path.append("/home/dm/.local/lib/python3.6/site-packages")</code> to add the paths where it looks for modules to import</li>
 </ol>
 
-#How this works
+# How this works
 
 First you'll need to set up your's
 preferences:
