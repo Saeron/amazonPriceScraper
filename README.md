@@ -1,5 +1,5 @@
-# amzonPriceScraper
-Automation for check the price of a Amazon item.
+# amazonPriceScraper
+Automation for check the price of a Amazon's item.
 
 #Requirements
 This program is using b24, html5lib and 
