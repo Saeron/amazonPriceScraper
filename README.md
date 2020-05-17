@@ -44,8 +44,8 @@ my_email: The email you are goin to
 use for notifications.
 
 password: The password of your email,
-but in this case i suggest you use
-an additional on, i order to do that
+but in this case I suggest you use
+an additional one, in order to do that
 ( gmail case ), first you need to
 activate the 2 steps verification.
 Then you can go to https://myaccount.google.com/apppasswords
