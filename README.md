@@ -1,7 +1,7 @@
 # AmazonPriceScraper
 Automation for check the price of a Amazon's item.
 
-#Requirements
+# Requirements
 This program is using b24, html5lib and 
 request as a external packages, 
 that means that you'll have to 
