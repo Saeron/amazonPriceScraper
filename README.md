@@ -64,4 +64,7 @@ is set to 24h so it does not make
 problems, but some time amazon can
 block you. Yo can change the user-agent 
 on <code>headers</code>, find somes
-on google: user agent.
+on google: user agent. I made an auto-switch
+user-agent so if you want to change
+it manually you'll have to disable
+this.
