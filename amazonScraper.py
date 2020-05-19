@@ -2,6 +2,7 @@ import smtplib
 import requests
 from bs4 import BeautifulSoup
 import time
+from SwitchUserAgent import SwitchUserAgent
 
 headers = {
     'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko)",
@@ -15,6 +16,10 @@ my_email = ""
 password = ""
 # Your max offer for the item (Change this value)
 my_price = 0
+# User agent manager
+swa = SwitchUserAgent("userAgentsFile.txt")
+# Number user agents in the list(lines) is better than count a huge file
+nua = 2508
 
 
 def send_mail(title, price):
@@ -42,6 +47,7 @@ def send_mail(title, price):
 
 
 def check_price():
+    global headers
     page = requests.get(URL, headers=headers)
     if page.status_code > 500:
         print("Page was blocked")
@@ -50,22 +56,30 @@ def check_price():
     # Only works whit html5lib on amazon
     soup = BeautifulSoup(page.content, "html5lib")
     title = soup.find(id="productTitle")
+    # If there is no title may be for the user-agent so this will change it.
     if not title:
-        print("Change user agent")
-        raise SystemExit(0)
-
-    title = title.get_text().strip()
-    print(title)
-    price = soup.find(id="priceblock_ourprice")
-    price = price.get_text()
-    # You need to replace "," for "." so you can convert to float
-    try:
-        converted_price = float(price.split()[0].replace(",", "."))
-    except TypeError as err:
-        print("You didn't get a number: ", err)
-    print(price)
-    if converted_price <= my_price:
-        send_mail(title, price)
+        user_agent = swa.random_user_agent(nua)
+        headers = {
+            'user-agent': str(user_agent.encode("utf8")),
+            'Content-Type': 'text/html; charset="iso-8859-1"'
+        }
+        print("Changed user agent: ", user_agent)
+        check_price()
+    else:
+        title = title.get_text().strip()
+        print(title)
+        price = soup.find(id="priceblock_ourprice")
+        price = price.get_text()
+        # You need to replace "," for "." so you can convert to float
+        try:
+            converted_price = float(price.split()[0].replace(",", "."))
+        except TypeError as err:
+            print("You didn't get a number: ", err)
+            # Try to get page again
+            check_price()
+        print(price)
+        if converted_price <= my_price:
+            send_mail(title, price)
 
 
 while True:
