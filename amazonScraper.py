@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 
+
 headers = {
     'user-agent': "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/605.1.15 (KHTML, like Gecko)",
     'Content-Type': 'text/html; charset="iso-8859-1"'
